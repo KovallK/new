@@ -1,7 +1,6 @@
 package pl.sda.javastart.homeWork2;
 
 import java.util.Scanner;
-
 public class taskNumThirtyFour {
     public static void main(String[] args) {
 
