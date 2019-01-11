@@ -1,9 +1,9 @@
 package pl.sda.javastart.homeWork2;
 
-public class tank {
+public class Tank {
     public static void main(String[] args) {
 
-        tank tankExemplar = new tank();
+        Tank tankExemplar = new Tank();
 
         tankExemplar.setWeight(5000);
         tankExemplar.setName("Rudy 102");
@@ -11,7 +11,7 @@ public class tank {
         tankExemplar.setFuelUsage(790);
         System.out.println(tankExemplar);
         System.out.println("Na pozostałym w baku paliwie przejedziesz " + tankExemplar.fuelRange(1190) + " km");
-        tank tankExemplarNew = new tank();
+        Tank tankExemplarNew = new Tank();
         tankExemplarNew.setWeight(10000);
         tankExemplarNew.setName("Rudy 103");
         tankExemplarNew.setFuelTankVolume(1500);
