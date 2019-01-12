@@ -3,13 +3,23 @@ package pl.sda.javastart.day5;
 import java.util.Objects;
 
 public class Person {
+    public static final int HEADS_QUANTITY = 1; //przypisanie wartości stałej
     private String surname;
     private String firstName;
     private int identity;
-    static int counter=0;
+    static int counter;
+
+    static {
+        counter = 1;
+    }
+
+    {
+        System.out.println("blok inicjalizujący");
+        this.identity = counter++;     //blok inicjalizujący -zawsze przed konstruktorem!
+    }
 
     public Person() {
-     this.identity=++counter;
+
     }
 
     public Person(String surname, String firstName, int identity) {
@@ -19,9 +29,13 @@ public class Person {
 
     }
 
+    public Person(String surname, String firstName) {
+        this.surname = surname;
+        this.firstName = firstName;
+    }
+
     public String getSurname() {
         return surname;
-
     }
 
     public void setSurname(String surname) {
@@ -55,6 +69,5 @@ public class Person {
 
     public void setIdentity(int identity) {
         this.identity = identity;
-
     }
 }
