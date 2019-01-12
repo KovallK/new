@@ -6,9 +6,22 @@ public class Person {
     private String surname;
     private String firstName;
     private int identity;
+    static int counter=0;
+
+    public Person() {
+     this.identity=++counter;
+    }
+
+    public Person(String surname, String firstName, int identity) {
+        this.surname = surname;
+        this.firstName = firstName;
+        this.identity = identity;
+
+    }
 
     public String getSurname() {
         return surname;
+
     }
 
     public void setSurname(String surname) {
