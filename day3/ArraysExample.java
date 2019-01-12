@@ -36,6 +36,7 @@ public class ArraysExample {
                 result = result + newTable[i] + ", ";
             } else {
                 result = result + newTable[i];
+
             }
         }
         result = result + "]";
