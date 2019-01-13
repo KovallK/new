@@ -9,6 +9,15 @@ public class Pensioner extends Person {
         super(firstName, lastName, identity, age);
         this.pension = pension;
     }
+    @Override
+    public BigDecimal showIncome(){//nadpisanie metody showincome,zeby podawal przychodz w Person ie
+        return pension;}
+
+    public void introductionInner(){
+        super.intoduction();
+        System.out.println("jestem też emerytem");
+
+    }
 
     public BigDecimal getPension() {//BigDecimale bo będziemy pisali kwoty,a to lepsze niz Iniger jest przy kwotach
         return pension;

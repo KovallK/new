@@ -1,6 +1,8 @@
 package pl.sda.javastart.day6;
 
-public class Person {
+import java.math.BigDecimal;
+
+public abstract class Person { //jezeli klasa stanie sie abstrakcyjna to nie da sie zrobic nowego obiektu typu Person
     private String firstName;
     private String lastName;
     private Integer identity;
@@ -12,7 +14,10 @@ public class Person {
         this.identity = identity;
         this.age = age;
     }
-
+    protected void intoduction(){
+        System.out.println("jestem człowiekiem");
+    }
+    public abstract BigDecimal showIncome();//metoda z użyciem klasy abstrakcyjnej bo metoda niedokonczona,jej cialo znajduje sie w klasach potomnych
 
     public String getFirstName() {
         return firstName;
