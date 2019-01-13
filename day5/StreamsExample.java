@@ -1,7 +1,10 @@
 package pl.sda.javastart.day5;
 
+import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import org.apache.commons.lang3.StringUtils;
 
+import java.sql.Array;
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -11,13 +14,15 @@ public class StreamsExample {
             "dog", "cat", "  pig", "dog", null, "parrot"};
 
     public static void main(String[] args) {
-        secondStream();
         firstStream();
+        secondStream();
+        sortExample();
 
 
     }
+
     private static void firstStream() {
-    for (String animal : animals) {
+        for (String animal : animals) {
             if (animal == null) {
                 continue;
 
@@ -46,8 +51,29 @@ public class StreamsExample {
         System.out.println("# a teraz stream");
         String result = Arrays.stream(animals)
                 .filter(a -> StringUtils.isNotBlank(a))
-                .map(a->a.trim())
+                .map(a -> a.trim())
                 .collect(Collectors.joining(","));
         System.out.println(result);
+    }
+
+    private static void sortExample() {
+        String name1 = "Ola";
+        String name2 = "Anna";
+
+        System.out.println(name1.compareTo(name2));
+        System.out.println("sortowanie alfabetyczne zwierząt");
+        Arrays.stream(animals)
+                .filter(e -> StringUtils.isNotBlank(e))
+                .map(e -> e.trim())//wykonuje jakies operacje na kazdym obiekcie i zwraca
+                .distinct()
+                .sorted((e, f) -> e.compareTo(f))
+                .forEach(e -> System.out.print(e + " "));
+        System.out.println("sortowanie po dugości nazwy");
+        Arrays.stream(animals)
+                .filter(e -> StringUtils.isNotBlank(e))
+                .map(e -> e.trim())
+                .distinct()
+                .sorted((e, f) -> Integer.valueOf(e.length()).compareTo(Integer.valueOf(f.length()))) //pobietramy długosc z duzego,a nie malego integera bo metodę .length mozemywywolac tylko na obiekcie jakim jest np. duzy Integer
+                .forEach(e -> System.out.println(e + " "));
     }
 }

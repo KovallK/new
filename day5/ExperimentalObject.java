@@ -3,17 +3,17 @@ package pl.sda.javastart.day5;
 public class ExperimentalObject {
     private Integer notFinalImmutable;
     private final Integer finalImmutable;//cannot change reference
-    private final Person finalMutable;
+    private final TestPerson finalMutable;
 
 
-    public ExperimentalObject(Integer NotFinalImmutable, Integer finalImmutable, Person finalMutable) {
+    public ExperimentalObject(Integer NotFinalImmutable, Integer finalImmutable, TestPerson finalMutable) {
         this.notFinalImmutable = NotFinalImmutable;
         this.finalImmutable = finalImmutable;
         this.finalMutable = finalMutable;
 
     }
 
-    public Person getFinalMutable() {
+    public TestPerson getFinalMutable() {
         return finalMutable;
     }
 

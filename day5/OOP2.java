@@ -5,26 +5,26 @@ public class OOP2 {
         equalsExample();
         referenceExample();
         staticFinal();
-        Person person1=new Person("Grażyna","Nowak");
-        System.out.println(person1.getIdentity());
+        TestPerson testPerson1 =new TestPerson("Grażyna","Nowak");
+        System.out.println(testPerson1.getIdentity());
 
 
     }
     private static void staticFinal() {
-        Person person1 = new Person();
-        Person person2 = new Person();
-        System.out.println(person1.getIdentity());
-        System.out.println(person2.getIdentity());
-        System.out.println("ludzi na świecie jest " + Person.counter);
+        TestPerson testPerson1 = new TestPerson();
+        TestPerson testPerson2 = new TestPerson();
+        System.out.println(testPerson1.getIdentity());
+        System.out.println(testPerson2.getIdentity());
+        System.out.println("ludzi na świecie jest " + TestPerson.counter);
         CalculatorUtils utils = new CalculatorUtils();//przy tej metodzie niestatycznej trzeba tworzyc obiekt
         System.out.println(utils.add(5, 7));
         System.out.println(CalculatorUtils.adding(3, 4));//przy metodzie statycznej nie trzeba tworzyć nowego obiektu,wywolujemy ja z klasy
-        person1.setFirstName("Janek");
-        ExperimentalObject object = new ExperimentalObject(1, 2, person1);
+        testPerson1.setFirstName("Janek");
+        ExperimentalObject object = new ExperimentalObject(1, 2, testPerson1);
         Integer mutableValue = object.getNotFinalImmutable();
         object.setNotFinalImmutable(6); //można ominąć final jeśli na zmiennej objest wywolamy metodę set i get
-        Person personFromObject = object.getFinalMutable();
-        personFromObject.setFirstName("John"); //zmiana imienia z klasy Person,ktora byla final,poprzez zejscie o poziom niżej i wywolanie get i set
+        TestPerson testPersonFromObject = object.getFinalMutable();
+        testPersonFromObject.setFirstName("John"); //zmiana imienia z klasy TestPerson,ktora byla final,poprzez zejscie o poziom niżej i wywolanie get i set
     }
 
     private static void referenceExample() {
@@ -46,20 +46,20 @@ public class OOP2 {
     }
 
     private static void equalsExample() {
-        Person person1 = new Person();
-        Person person2 = new Person();
-        person1.setFirstName("Anna");
-        person2.setFirstName("Anna");
-        person1.setSurname("Nowak");
-        person2.setSurname("Nowak");
-        person1.setIdentity(123);
-        person2.setIdentity(123);
+        TestPerson testPerson1 = new TestPerson();
+        TestPerson testPerson2 = new TestPerson();
+        testPerson1.setFirstName("Anna");
+        testPerson2.setFirstName("Anna");
+        testPerson1.setSurname("Nowak");
+        testPerson2.setSurname("Nowak");
+        testPerson1.setIdentity(123);
+        testPerson2.setIdentity(123);
 
-        System.out.println(person1 == person2);
-        System.out.println(person1.equals(person2));
-        System.out.println(person1.hashCode() == person2.hashCode());
+        System.out.println(testPerson1 == testPerson2);
+        System.out.println(testPerson1.equals(testPerson2));
+        System.out.println(testPerson1.hashCode() == testPerson2.hashCode());
 
-        Person person3 = new Person("Anna", "Nowak", 82626);
+        TestPerson testPerson3 = new TestPerson("Anna", "Nowak", 82626);
 
     }
 
